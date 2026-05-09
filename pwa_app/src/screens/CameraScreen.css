@@ -1,0 +1,202 @@
+/* ─── Camera Screen ──────────────────────────────────────────── */
+.camera-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #0B1213;
+  color: #fff;
+}
+
+/* Header */
+.cam-header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  padding: 48px var(--space-5) var(--space-3);
+  flex-shrink: 0;
+}
+
+.back-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.80);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background 0.15s ease;
+}
+.back-btn:active { background: rgba(255,255,255,0.14); }
+
+.cam-title {
+  font-family: var(--font-head);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: rgba(255,255,255,0.90);
+  text-align: center;
+}
+
+/* Viewfinder */
+.viewfinder-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  min-height: 0;
+}
+
+.viewfinder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Error state */
+.cam-error {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-8);
+  text-align: center;
+  color: rgba(255,255,255,0.55);
+  font-size: var(--text-sm);
+}
+.cam-error-icon {
+  font-size: 36px;
+  opacity: 0.6;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.target-box {
+  width: 210px;
+  height: 210px;
+  position: relative;
+}
+
+.corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: rgba(255,255,255,0.80);
+  border-style: solid;
+}
+.tl { top: 0; left: 0;  border-width: 2px 0 0 2px; }
+.tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+.bl { bottom: 0; left: 0;  border-width: 0 0 2px 2px; }
+.br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+.aim-text {
+  margin-top: var(--space-3);
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.60);
+  text-align: center;
+  background: rgba(0,0,0,0.50);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+
+/* Progress bar */
+.progress-wrap {
+  padding: var(--space-3) var(--space-5);
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+
+.progress-label {
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.45);
+  margin-bottom: var(--space-2);
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.frame-track {
+  height: 3px;
+  background: rgba(255,255,255,0.10);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.frame-fill {
+  height: 100%;
+  background: rgba(255,255,255,0.70);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+/* Instructions */
+.cam-instructions {
+  padding: var(--space-3) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.instruction-row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+
+.instruction-row strong {
+  color: rgba(255,255,255,0.70);
+  font-weight: 500;
+}
+
+.inst-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.30);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* Footer / capture button */
+.cam-footer {
+  padding: var(--space-4) var(--space-6) 36px;
+  flex-shrink: 0;
+}
+
+.capture-btn {
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--text-base);
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.capture-btn:active    { transform: scale(0.98); background: var(--teal-hover); }
+.capture-btn:disabled  { opacity: 0.35; cursor: not-allowed; transform: none; }
+
+.capture-btn.scanning {
+  background: rgba(11,110,114,0.70);
+}

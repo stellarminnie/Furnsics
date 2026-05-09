@@ -1,0 +1,70 @@
+/* ─── Result Screen ──────────────────────────────────────────── */
+.result-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-6) 48px;
+  background: var(--surface);
+  gap: 0;
+}
+
+/* Status icon */
+.result-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-5);
+}
+
+.result-icon.positive { background: #FDECEA; }
+.result-icon.negative { background: #EEFAF4; }
+
+.result-icon svg { display: block; }
+
+/* Verdict */
+.result-verdict {
+  font-family: var(--font-head);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-3);
+}
+.result-verdict.positive { color: var(--danger); }
+.result-verdict.negative { color: var(--success); }
+
+/* Stats */
+.result-stats {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.stat-pill {
+  padding: 6px 14px;
+  background: var(--bg);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+/* Divider */
+.result-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+  margin-bottom: var(--space-8);
+}
+
+/* Actions */
+.result-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
